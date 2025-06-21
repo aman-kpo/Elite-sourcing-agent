@@ -169,9 +169,9 @@ def main():
         # API Key validation
         st.subheader("🔑 API Status")
         api_keys = {
-            "OpenAI": os.getenv("OPENAI_API_KEY"),
-            "Google": os.getenv("GOOGLE_API_KEY"),
-            "Apify": os.getenv("APIFY_API_KEY")
+            "OpenAI": st.secrets["OPENAI_API_KEY"],
+            "Google": st.secrets["GOOGLE_API_KEY"],
+            "Apify": st.secrets["APIFY_API_KEY"]
         }
         
         for api, key in api_keys.items():
