@@ -1,5 +1,5 @@
 streamlit
-
+apify-client
 langchain
 langchain-openai
 langchain-community
