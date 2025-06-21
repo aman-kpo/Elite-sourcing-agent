@@ -19,6 +19,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 load_dotenv()
 from apify_client import ApifyClient
+import streamlit as st
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -48,10 +49,10 @@ class WorkingLinkedInIntegration:
     
     def __init__(self):
         # Apify API Configuration
-        self.apify_api_key = os.getenv("APIFY_API_KEY")
-        self.apify_actor_id = os.getenv("APIFY_ACTOR_ID")
+        self.apify_api_key = st.secrets["APIFY_API_KEY"]
+        self.apify_actor_id = st.secrets["APIFY_ACTOR_ID"]
         # OpenAI client for fallback inference
-        self.openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        self.openai_client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
         # Rate limiting
         self.last_request_time = 0
         self.min_request_interval = 0.5
