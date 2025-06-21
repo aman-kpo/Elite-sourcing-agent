@@ -128,7 +128,7 @@ class SmartEvaluator:
     
     def __init__(self):
         self.context_detector = SmartContextDetector()
-        self.api_key = os.getenv("OPENAI_API_KEY")
+        self.api_key = st.secrets["OPENAI_API_KEY"]
         # Initialize LLM without JSON mode for criteria generation
         self.llm = ChatOpenAI(
             model="gpt-4o-mini", 
