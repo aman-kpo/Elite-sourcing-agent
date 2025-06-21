@@ -7,7 +7,7 @@ from datetime import datetime
 from dotenv import load_dotenv
 import time
 import re
-
+import streamlit as st
 # Import the Elite components
 from smart_evaluator import SmartEvaluator, SmartContextDetector
 from search_generator import SearchQueryGenerator
@@ -244,9 +244,9 @@ class EliteSourcingAgent:
             self.linkedin_searcher = None
         
         # API configuration
-        self.api_key = os.getenv("OPENAI_API_KEY")
-        self.google_api_key = os.getenv("GOOGLE_API_KEY")
-        self.search_engine_id = os.getenv("SEARCH_ENGINE_ID")
+        self.api_key =st.secrets["OPENAI_API_KEY"]
+        self.google_api_key = st.secrets["GOOGLE_API_KEY"]
+        self.search_engine_id = st.secrets["SEARCH_ENGINE_ID"]
         
         # Performance tracking
         self.query_performance = []
